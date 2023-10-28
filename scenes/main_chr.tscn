@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://cyvgfwlw0vt51" path="res://assets/main_chr.png" id="1_esmxp"]
 [ext_resource type="Script" path="res://scripts/main_chr.gd" id="1_gdkjk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl8fb"]
-radius = 11.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqgcm"]
+size = Vector2(13.5376, 10.6823)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_gdkjk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0766129, 0.0766129)
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.059413, 0.059413)
 texture = ExtResource("1_esmxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
-shape = SubResource("CapsuleShape2D_fl8fb")
+position = Vector2(2.38419e-07, 18)
+scale = Vector2(1.18189, 1.12335)
+shape = SubResource("RectangleShape2D_hqgcm")
