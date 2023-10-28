@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhi3e8wu2sqqy"]
+
+[ext_resource type="Texture2D" uid="uid://cyvgfwlw0vt51" path="res://assets/main_chr.png" id="1_esmxp"]
+[ext_resource type="Script" path="res://scripts/main_chr.gd" id="1_gdkjk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl8fb"]
+radius = 11.0
+height = 22.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gdkjk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0766129, 0.0766129)
+texture = ExtResource("1_esmxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("CapsuleShape2D_fl8fb")
