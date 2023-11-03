@@ -7,6 +7,7 @@ var speed: float
 var weight: float = 0.0
 var time: float = 0.0
 var incr_weight: bool = true
+var score: int = 0
 
 func _physics_process(_delta):
 	# check_weight(delta) # Weight goes up and down in 2s intervals.
@@ -15,22 +16,3 @@ func _physics_process(_delta):
 	velocity = direction * speed
 	
 	move_and_slide()
-
-func weight_up():
-	weight += 1
-
-func weight_down():
-	weight -= 1
-	
-func check_weight(delta):
-	time += delta
-	if time >= 2:
-		if incr_weight:
-			weight_up()
-			print(weight)
-			if weight >= 5: incr_weight = false
-		else:
-			weight_down()
-			print(weight)
-			if weight <= 0: incr_weight = true
-		time = 0
