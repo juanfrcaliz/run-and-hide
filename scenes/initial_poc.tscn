@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dhi3e8wu2sqqy" path="res://scenes/main_chr.tscn" id="1_ironc"]
 [ext_resource type="PackedScene" uid="uid://dpcb40mf8avuj" path="res://scenes/level0.tscn" id="1_kiv4o"]
 
-[node name="Node2D" type="Node2D"]
+[node name="initial_poc" type="Node2D"]
 position = Vector2(61, 52)
 
-[node name="Node2D" parent="." instance=ExtResource("1_kiv4o")]
+[node name="level0" parent="." instance=ExtResource("1_kiv4o")]
 
 [node name="main_chr" parent="." instance=ExtResource("1_ironc")]
 position = Vector2(4, 13)
