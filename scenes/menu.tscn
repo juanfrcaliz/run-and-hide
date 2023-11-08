@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_w2l6u"]
 
 [node name="menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,16 +28,6 @@ grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../QuitButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Start Game"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-focus_neighbor_top = NodePath("../StartButton")
-focus_neighbor_bottom = NodePath(".")
-text = "Quit Game"
-
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
