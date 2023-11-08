@@ -5,6 +5,7 @@ const EMPTY_DELAY = 0.5
 var time: float = 0
 var player_in_bunker: bool
 var player
+var score: int = 0
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
@@ -19,5 +20,8 @@ func _process(delta):
 		player = get_tree().get_nodes_in_group("player")[0]
 		if player_in_bunker and time > EMPTY_DELAY and player.weight > 0:
 			player.weight -= 1
+			score += 1
+			if score >= 6:
+				get_tree().change_scene_to_file("res://scenes/win.tscn")
 			time = 0
 	time += delta

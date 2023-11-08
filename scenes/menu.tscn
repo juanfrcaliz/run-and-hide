@@ -32,6 +32,7 @@ focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath(".")
