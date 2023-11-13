@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckyun2qn6crxn"]
+[gd_scene load_steps=2 format=3 uid="uid://bp22nqoy7t7gg"]
 
-[ext_resource type="Script" path="res://scripts/win.gd" id="1_fhp08"]
+[ext_resource type="Script" path="res://scripts/win.gd" id="1_cod1a"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fhp08")
+script = ExtResource("1_cod1a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -18,9 +18,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
+offset_left = -57.5
 offset_top = -30.5
-offset_right = 46.5
+offset_right = 57.5
 offset_bottom = 30.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -28,7 +28,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 process_mode = 3
 layout_mode = 2
-text = "Victory!"
+text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer"]

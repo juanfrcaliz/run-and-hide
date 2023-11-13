@@ -5,10 +5,9 @@
 [ext_resource type="Script" path="res://scripts/initial_poc.gd" id="1_q2a3u"]
 
 [node name="initial_poc" type="Node2D"]
-position = Vector2(61, 52)
 script = ExtResource("1_q2a3u")
 
 [node name="level0" parent="." instance=ExtResource("1_kiv4o")]
 
 [node name="main_chr" parent="." instance=ExtResource("1_ironc")]
-position = Vector2(4, 13)
+top_level = true
