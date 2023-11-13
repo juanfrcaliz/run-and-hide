@@ -28,10 +28,13 @@ func _physics_process(_delta):
 		speed = BASE_SPEED - (BASE_SPEED / 8) * weight
 		var direction = Input.get_vector("left", "right", "up", "down")
 		velocity = direction * speed
-		get_node("backpack_bar").value = weight * 20
 		move_and_slide()
 	
 func _process(delta):
+	if jump_weight(): get_node("Forbidden").hide()
+	else: get_node("Forbidden").show()
+	get_node("backpack_bar").value = weight * 20
+	
 	if Input.is_action_just_pressed("jump") and jump_weight() and grounded:
 		start_jump()
 	

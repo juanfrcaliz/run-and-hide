@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhi3e8wu2sqqy"]
+[gd_scene load_steps=12 format=3 uid="uid://dhi3e8wu2sqqy"]
 
 [ext_resource type="Texture2D" uid="uid://cyvgfwlw0vt51" path="res://assets/main_chr.png" id="1_esmxp"]
 [ext_resource type="Script" path="res://scripts/main_chr.gd" id="1_gdkjk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dijncs4pby28" path="res://assets/backpack_bar.png" id="4_xbrb3"]
 [ext_resource type="Texture2D" uid="uid://dhj6yub5ouyqk" path="res://assets/backpack.png" id="5_1wfft"]
 [ext_resource type="PackedScene" uid="uid://bt10nhcq8l0b4" path="res://scenes/pause_menu.tscn" id="6_yhr68"]
+[ext_resource type="Texture2D" uid="uid://bpixfyrbel36g" path="res://assets/jump_icon.png" id="8_cxaxq"]
+[ext_resource type="Texture2D" uid="uid://gw2wwff78vh7" path="res://assets/forbidden.png" id="9_qrpib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqgcm"]
 size = Vector2(5.07661, 5.17059)
@@ -42,9 +44,9 @@ shape = SubResource("RectangleShape2D_hqgcm")
 
 [node name="backpack_bar" type="TextureProgressBar" parent="."]
 texture_filter = 1
-offset_left = 94.68
+offset_left = 65.68
 offset_top = -62.0
-offset_right = 105.68
+offset_right = 76.68
 offset_bottom = -22.0
 step = 20.0
 fill_mode = 3
@@ -53,7 +55,7 @@ texture_over = ExtResource("3_8y7ar")
 texture_progress = ExtResource("4_xbrb3")
 
 [node name="backpack_sprite" type="Sprite2D" parent="."]
-position = Vector2(83.68, -30)
+position = Vector2(54.68, -30)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("5_1wfft")
 
@@ -65,3 +67,13 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0jwqy")
 
 [node name="pause_menu" parent="." instance=ExtResource("6_yhr68")]
+
+[node name="JumpIcon" type="Sprite2D" parent="."]
+position = Vector2(90, -30)
+scale = Vector2(0.0274673, 0.0274674)
+texture = ExtResource("8_cxaxq")
+
+[node name="Forbidden" type="Sprite2D" parent="."]
+position = Vector2(90, -32)
+scale = Vector2(0.0291971, 0.0291971)
+texture = ExtResource("9_qrpib")
