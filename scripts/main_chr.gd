@@ -79,11 +79,11 @@ func kill_player():
 	game_over = true
 
 func start_jump():
-	set_collision_mask_value(2, false)
-	get_node("ground_area").set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
+	get_node("ground_area").set_collision_mask_value(3, false)
 	grounded = false
 
 func end_jump():
-	set_collision_mask_value(2, true)
-	get_node("ground_area").set_collision_mask_value(2, true)
+	set_collision_mask_value(3, true)
+	get_node("ground_area").set_collision_mask_value(3, true)
 	grounded = true

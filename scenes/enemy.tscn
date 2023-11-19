@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfx76ph4yfx7i"]
+
+[ext_resource type="Texture2D" uid="uid://0urmv8ahq35n" path="res://assets/main_chr_dead.png" id="1_8hoyi"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_e26np"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsifi"]
+radius = 3.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7vt4"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgavr"]
+radius = 34.0
+
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 6
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_e26np")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.021, 0.021)
+texture = ExtResource("1_8hoyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_bsifi")
+
+[node name="kill_player" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_player"]
+shape = SubResource("CapsuleShape2D_s7vt4")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 0.1
+path_postprocessing = 1
+neighbor_distance = 6.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="player_detection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+shape = SubResource("CircleShape2D_xgavr")
+
+[connection signal="body_entered" from="kill_player" to="." method="_on_kill_player_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
