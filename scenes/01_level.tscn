@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bad1ug8lpttr2"]
+
+[ext_resource type="PackedScene" uid="uid://c5g33bbnqd1rv" path="res://scenes/tile_map.tscn" id="1_al2pr"]
+[ext_resource type="PackedScene" uid="uid://bfx76ph4yfx7i" path="res://scenes/enemy.tscn" id="2_t4sgi"]
+[ext_resource type="PackedScene" uid="uid://dhi3e8wu2sqqy" path="res://scenes/main_chr.tscn" id="3_ea7as"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_al2pr")]
+
+[node name="main_chr" parent="." instance=ExtResource("3_ea7as")]
+position = Vector2(82, 14)
+
+[node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_t4sgi")]
+z_index = 1
+position = Vector2(-40, -32)
+player = NodePath("../main_chr")

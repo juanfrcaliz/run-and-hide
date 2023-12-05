@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const BASE_SPEED: float = 150.0
+const BASE_SPEED: float = 100.0
 const JUMP_TIME: float = 0.3
 const PIT_TILES = [Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1),
 				   Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2),

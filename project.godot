@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/scale=5.0
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [input]
 
 up={

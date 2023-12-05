@@ -43,3 +43,4 @@ func _tile_data_runtime_update(layer, cell, tile_data):
 
 	tile_data.set_navigation_polygon(0, NavigationPolygon.new())
 	return true
+		
