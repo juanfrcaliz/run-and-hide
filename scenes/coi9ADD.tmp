@@ -24,7 +24,7 @@ animations = [{
 "texture": ExtResource("3_fg3b7")
 }],
 "loop": true,
-"name": &"flip",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -41,4 +41,3 @@ shape = SubResource("CircleShape2D_bybmq")
 position = Vector2(-0.125001, -1.14285)
 scale = Vector2(19.1786, 19.1786)
 sprite_frames = SubResource("SpriteFrames_gclab")
-animation = &"flip"

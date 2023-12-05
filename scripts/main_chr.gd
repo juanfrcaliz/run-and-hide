@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const BASE_SPEED: float = 100.0
-const JUMP_TIME: float = 0.3
+const JUMP_TIME: float = 0.5
 const PIT_TILES = [Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1),
 				   Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2),
 				   Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)
@@ -9,6 +9,7 @@ const PIT_TILES = [Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1),
 const TILEMAP_ID: int = 3
 
 @onready var gui = get_node("../gui")
+@onready var _animated_sprite = $AnimatedSprite2D
 
 var speed: float
 var weight: float = 0.0
@@ -19,7 +20,7 @@ var collision_coords: Vector2i
 var tilemap
 
 func _ready():
-	get_node("main_chr_sprite").show()
+	get_node("AnimatedSprite2D").show()
 	get_node("main_chr_dead_sprite").hide()
 	tilemap = get_node("/root/initial_poc/level0/TileMap")
 
@@ -65,7 +66,8 @@ func over_pit():
 		return false
 
 func kill_player():
-	get_node("main_chr_sprite").hide()
+	_animated_sprite.stop()
+	get_node("AnimatedSprite2D").hide()
 	get_node("main_chr_dead_sprite").show()
 	game_over = true
 
@@ -73,11 +75,13 @@ func start_jump():
 	set_collision_mask_value(3, false)
 	get_node("ground_area").set_collision_mask_value(3, false)
 	grounded = false
+	_animated_sprite.play("jump")
 
 func end_jump():
 	set_collision_mask_value(3, true)
 	get_node("ground_area").set_collision_mask_value(3, true)
 	grounded = true
+	_animated_sprite.stop()
 
 
 func _on_object_pickup_area_area_entered(area):

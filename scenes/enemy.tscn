@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfx76ph4yfx7i"]
 
-[ext_resource type="Texture2D" uid="uid://0urmv8ahq35n" path="res://assets/main_chr_dead.png" id="1_8hoyi"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="2_e26np"]
 [ext_resource type="Script" path="res://scripts/player_detection.gd" id="3_4uyv0"]
 [ext_resource type="Texture2D" uid="uid://d0m8grym3rif" path="res://assets/circle.png" id="3_tcxav"]
+[ext_resource type="Texture2D" uid="uid://cq5ey1fordfyv" path="res://assets/player_pixel.png" id="5_jwvpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsifi"]
 radius = 3.0
@@ -16,15 +16,17 @@ height = 10.0
 radius = 18.2483
 
 [node name="enemy" type="CharacterBody2D"]
+texture_filter = 1
 collision_layer = 0
 collision_mask = 6
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_e26np")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.021, 0.021)
-texture = ExtResource("1_8hoyi")
+[node name="PlayerPixel" type="Sprite2D" parent="."]
+modulate = Color(0.219608, 0.403922, 0.0941176, 1)
+texture_filter = 1
+texture = ExtResource("5_jwvpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -59,7 +61,7 @@ texture = ExtResource("3_tcxav")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_detection"]
 position = Vector2(-0.181252, 0)
-scale = Vector2(0.740935, 1)
+scale = Vector2(0.956285, 1)
 polygon = PackedVector2Array(126, -35, 129, -19, 131, 0, 130, 16, 128, 28, 0, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="player_detection/CollisionPolygon2D"]

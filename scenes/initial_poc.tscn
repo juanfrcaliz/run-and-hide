@@ -10,6 +10,7 @@
 [node name="level0" parent="." instance=ExtResource("1_kiv4o")]
 
 [node name="main_chr" parent="." instance=ExtResource("4_1x3oh")]
+scale = Vector2(0.7, 0.7)
 
 [node name="gui" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ueu6w")]
 z_index = 2
@@ -18,5 +19,6 @@ player = NodePath("../main_chr")
 [node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_t4ser")]
 top_level = true
 z_index = 1
-position = Vector2(39, -88)
+position = Vector2(42, -74)
+scale = Vector2(0.6, 0.6)
 player = NodePath("../main_chr")
