@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://xtriqdi214q3"]
+
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_jgjpj"]
+[ext_resource type="Texture2D" uid="uid://q1l2tttowq7r" path="res://assets/over_bar.png" id="1_ku6fs"]
+[ext_resource type="Texture2D" uid="uid://dijncs4pby28" path="res://assets/backpack_bar.png" id="2_vc32j"]
+[ext_resource type="Texture2D" uid="uid://dhj6yub5ouyqk" path="res://assets/backpack.png" id="3_u866k"]
+[ext_resource type="PackedScene" uid="uid://bt10nhcq8l0b4" path="res://scenes/pause_menu.tscn" id="4_2b476"]
+[ext_resource type="Texture2D" uid="uid://bpixfyrbel36g" path="res://assets/jump_icon.png" id="5_3knwf"]
+[ext_resource type="Texture2D" uid="uid://gw2wwff78vh7" path="res://assets/forbidden.png" id="6_k6wsf"]
+[ext_resource type="Texture2D" uid="uid://bwk5mrbjme3j2" path="res://assets/fog.png" id="7_k7y4p"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_jgjpj")
+
+[node name="Fog" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_k7y4p")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -108.0
+offset_top = -61.0
+offset_right = 53.0
+offset_bottom = -35.0
+scale = Vector2(0.476525, 0.476525)
+text = "Coins Collected: 0/X"
+
+[node name="backpack_bar" type="TextureProgressBar" parent="."]
+z_index = 3
+texture_filter = 1
+offset_left = 65.68
+offset_top = -62.0
+offset_right = 76.68
+offset_bottom = -22.0
+step = 20.0
+value = 20.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("1_ku6fs")
+texture_progress = ExtResource("2_vc32j")
+
+[node name="backpack_sprite" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(56, -31)
+scale = Vector2(0.029651, 0.029651)
+texture = ExtResource("3_u866k")
+
+[node name="pause_menu" parent="." instance=ExtResource("4_2b476")]
+
+[node name="JumpIcon" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(90, -30)
+scale = Vector2(0.0274673, 0.0274674)
+texture = ExtResource("5_3knwf")
+
+[node name="Forbidden" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(90, -31)
+scale = Vector2(0.0291971, 0.0291971)
+texture = ExtResource("6_k6wsf")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1548,6 +1548,7 @@ tile_proxies/coords_level = [[3, Vector2i(1, 1)], [8, Vector2i(1, 1)], [3, Vecto
 texture_filter = 1
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 tile_set = SubResource("TileSet_qgy44")
 format = 2

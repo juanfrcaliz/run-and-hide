@@ -1,20 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://3hvwg47jce22"]
 
-[ext_resource type="PackedScene" uid="uid://dhi3e8wu2sqqy" path="res://scenes/main_chr.tscn" id="1_ironc"]
 [ext_resource type="PackedScene" uid="uid://dpcb40mf8avuj" path="res://scenes/level0.tscn" id="1_kiv4o"]
-[ext_resource type="Script" path="res://scripts/initial_poc.gd" id="1_q2a3u"]
+[ext_resource type="PackedScene" uid="uid://bbv25nqvetj75" path="res://scenes/main_chr.tscn" id="4_1x3oh"]
 [ext_resource type="PackedScene" uid="uid://bfx76ph4yfx7i" path="res://scenes/enemy.tscn" id="4_t4ser"]
+[ext_resource type="PackedScene" uid="uid://xtriqdi214q3" path="res://scenes/gui.tscn" id="5_ueu6w"]
 
 [node name="initial_poc" type="Node2D"]
-script = ExtResource("1_q2a3u")
 
 [node name="level0" parent="." instance=ExtResource("1_kiv4o")]
 
-[node name="main_chr" parent="." instance=ExtResource("1_ironc")]
-top_level = true
+[node name="main_chr" parent="." instance=ExtResource("4_1x3oh")]
+
+[node name="gui" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ueu6w")]
+z_index = 2
+player = NodePath("../main_chr")
 
 [node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_t4ser")]
 top_level = true
-z_index = 2
+z_index = 1
 position = Vector2(39, -88)
 player = NodePath("../main_chr")

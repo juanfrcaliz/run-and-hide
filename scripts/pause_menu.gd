@@ -1,9 +1,14 @@
 extends CanvasLayer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("VBoxContainer/Continue").grab_focus()
+
+
+func _process(_delta):
+	if Input.is_action_pressed("pause"):
+		get_tree().paused = true
+		get_node("./VBoxContainer").show()
 
 func _on_continue_pressed():
 	unpause()

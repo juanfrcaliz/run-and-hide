@@ -7,14 +7,14 @@ const PIT_TILES = [Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1),
 				   Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3)
 				]
 const TILEMAP_ID: int = 3
-const GAME_OVER_DELAY: float = 0.6
+
+@onready var gui = get_node("../gui")
 
 var speed: float
 var weight: float = 0.0
 var jump_time: float = 0
 var grounded: bool = true
 var game_over: bool = false
-var game_over_time: float = 0
 var collision_coords: Vector2i
 var tilemap
 
@@ -31,9 +31,6 @@ func _physics_process(_delta):
 		move_and_slide()
 	
 func _process(delta):
-	if jump_weight(): get_node("Forbidden").hide()
-	else: get_node("Forbidden").show()
-	get_node("backpack_bar").value = weight * 20
 	
 	if Input.is_action_just_pressed("jump") and jump_weight() and grounded:
 		start_jump()
@@ -46,13 +43,7 @@ func _process(delta):
 			else:
 				end_jump()
 				jump_time = 0
-	
-	if game_over:
-		game_over_time += delta
-		if game_over_time >= GAME_OVER_DELAY:
-			game_over = false
-			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-			
+
 
 func jump_weight():
 	if weight <= 2:
@@ -87,3 +78,9 @@ func end_jump():
 	set_collision_mask_value(3, true)
 	get_node("ground_area").set_collision_mask_value(3, true)
 	grounded = true
+
+
+func _on_object_pickup_area_area_entered(area):
+	if area.is_in_group("coin"):
+		if area.pick_up(self):
+			gui.picked_coins += 1

@@ -1,17 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bad1ug8lpttr2"]
+[gd_scene load_steps=5 format=3 uid="uid://bad1ug8lpttr2"]
 
 [ext_resource type="PackedScene" uid="uid://c5g33bbnqd1rv" path="res://scenes/tile_map.tscn" id="1_al2pr"]
-[ext_resource type="PackedScene" uid="uid://bfx76ph4yfx7i" path="res://scenes/enemy.tscn" id="2_t4sgi"]
-[ext_resource type="PackedScene" uid="uid://dhi3e8wu2sqqy" path="res://scenes/main_chr.tscn" id="3_ea7as"]
+[ext_resource type="PackedScene" uid="uid://xtriqdi214q3" path="res://scenes/gui.tscn" id="1_psnkg"]
+[ext_resource type="PackedScene" uid="uid://bbv25nqvetj75" path="res://scenes/main_chr.tscn" id="2_ri4j0"]
+[ext_resource type="PackedScene" uid="uid://ficya0h6ecr7" path="res://scenes/testing/coin.tscn" id="3_hwiyp"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Control" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_psnkg")]
+player = NodePath("../main_chr")
+
 [node name="TileMap" parent="." instance=ExtResource("1_al2pr")]
 
-[node name="main_chr" parent="." instance=ExtResource("3_ea7as")]
-position = Vector2(82, 14)
+[node name="main_chr" parent="." instance=ExtResource("2_ri4j0")]
+position = Vector2(27, 33)
 
-[node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_t4sgi")]
-z_index = 1
-position = Vector2(-40, -32)
-player = NodePath("../main_chr")
+[node name="Area2D" parent="." instance=ExtResource("3_hwiyp")]
+position = Vector2(-52, 32)
+
+[node name="Area2D2" parent="." instance=ExtResource("3_hwiyp")]
+position = Vector2(-21, 10)
+
+[node name="Area2D3" parent="." instance=ExtResource("3_hwiyp")]
+position = Vector2(-36, -37)
+
+[node name="Area2D4" parent="." instance=ExtResource("3_hwiyp")]
+position = Vector2(54, 9)

@@ -23,7 +23,7 @@ func _physics_process(_delta) -> void:
 
 
 func is_target_reached():
-	return nav_agent.target_position.distance_to($".".position) < REACHABLE_THRESHOLD
+	return nav_agent.target_position.distance_to(self.position) < REACHABLE_THRESHOLD
 
 
 func is_point_reachable(target_position: Vector2):
@@ -42,11 +42,9 @@ func make_path() -> void:
 		initial_path = false
 	
 	if player_detected and is_point_reachable(player.position):
-		print("player detected")
 		speed = SPEED
 		nav_agent.target_position = player.global_position
 	elif is_target_reached() and not waiting:
-		print("target reached")
 		speed = 0
 		$Wait_timer.start()
 		waiting = true
@@ -54,19 +52,12 @@ func make_path() -> void:
 
 func get_random_position():
 	var random_cell = used_cells[randi() % used_cells.size()]
-	print("New random cell: ", random_cell)
 	var random_position = tilemap.map_to_local(random_cell)
-	print("New random position: ", random_position)
 	return random_position
 
 
 func _on_path_calc_timer_timeout():
-	#if nav_agent.target_position.distance_to($".".position) < REACHABLE_THRESHOLD:
-	#	target_reached = true
-	#else: target_reached = false
 	make_path()
-	print("Distance to target: ", nav_agent.target_position.distance_to($".".position))
-	print("Speed: ", speed)
 
 
 func _on_wait_timer_timeout():
@@ -91,4 +82,4 @@ func _on_kill_player_body_entered(body):
 	if body == player:
 		# return
 		get_node(".").set_physics_process(false)
-		player.game_over = true
+		player.kill_player()
