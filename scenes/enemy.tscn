@@ -48,9 +48,8 @@ neighbor_distance = 6.0
 wait_time = 0.1
 autostart = true
 
-[node name="VisionCone" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_q58s5")]
+[node name="VisionCone" parent="." instance=ExtResource("3_q58s5")]
 cone_radius = 200.0
-enemy = NodePath("..")
 
 [node name="player_detection" type="Area2D" parent="." node_paths=PackedStringArray("enemy")]
 visible = false

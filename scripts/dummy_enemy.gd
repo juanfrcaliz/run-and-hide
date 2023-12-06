@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var player: CharacterBody2D
 
 @onready var vision_cone = $VisionCone
 const BASE_SPEED = 300.0
