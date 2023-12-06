@@ -1574,6 +1574,10 @@ script = ExtResource("4_wj228")
 position = Vector2(-75, -55)
 scale = Vector2(0.0337345, 0.0337345)
 
+[node name="Area2D7" parent="." instance=ExtResource("4_ssi1b")]
+position = Vector2(-44, 9.00001)
+scale = Vector2(0.0337345, 0.0337345)
+
 [node name="Area2D2" parent="." instance=ExtResource("4_ssi1b")]
 position = Vector2(75, -70)
 scale = Vector2(0.0337345, 0.0337345)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4mq8k3sx7gm4"]
+
+[ext_resource type="Script" path="res://scripts/vision_cone.gd" id="1_pxyp2"]
+
+[node name="VisionCone" type="Node2D"]
+script = ExtResource("1_pxyp2")
+cone_angle = 15.0
+cone_radius = 50.0

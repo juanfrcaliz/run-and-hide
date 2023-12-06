@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfx76ph4yfx7i"]
+[gd_scene load_steps=9 format=3 uid="uid://bfx76ph4yfx7i"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="2_e26np"]
 [ext_resource type="Script" path="res://scripts/player_detection.gd" id="3_4uyv0"]
+[ext_resource type="PackedScene" uid="uid://c4mq8k3sx7gm4" path="res://scenes/vision_cone.tscn" id="3_q58s5"]
 [ext_resource type="Texture2D" uid="uid://d0m8grym3rif" path="res://assets/circle.png" id="3_tcxav"]
 [ext_resource type="Texture2D" uid="uid://cq5ey1fordfyv" path="res://assets/player_pixel.png" id="5_jwvpx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsifi"]
-radius = 3.0
+radius = 4.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7vt4"]
-radius = 3.0
-height = 10.0
+radius = 4.0
+height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgavr"]
 radius = 18.2483
@@ -29,13 +30,14 @@ texture_filter = 1
 texture = ExtResource("5_jwvpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_bsifi")
 
 [node name="kill_player" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill_player"]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_s7vt4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -46,7 +48,12 @@ neighbor_distance = 6.0
 wait_time = 0.1
 autostart = true
 
+[node name="VisionCone" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("3_q58s5")]
+cone_radius = 200.0
+enemy = NodePath("..")
+
 [node name="player_detection" type="Area2D" parent="." node_paths=PackedStringArray("enemy")]
+visible = false
 collision_layer = 0
 script = ExtResource("3_4uyv0")
 enemy = NodePath("..")

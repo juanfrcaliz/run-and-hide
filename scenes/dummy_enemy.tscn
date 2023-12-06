@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://0h22kvbtygmx"]
+
+[ext_resource type="Script" path="res://scripts/dummy_enemy.gd" id="1_bx7mx"]
+[ext_resource type="Texture2D" uid="uid://cq5ey1fordfyv" path="res://assets/player_pixel.png" id="1_de5er"]
+[ext_resource type="PackedScene" uid="uid://c4mq8k3sx7gm4" path="res://scenes/vision_cone.tscn" id="2_fyikx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nq1j"]
+radius = 4.0
+height = 18.0
+
+[node name="Node2D" type="CharacterBody2D"]
+light_mask = 2
+texture_filter = 1
+position = Vector2(54, 68)
+script = ExtResource("1_bx7mx")
+
+[node name="PlayerPixel" type="Sprite2D" parent="."]
+texture = ExtResource("1_de5er")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_6nq1j")
+
+[node name="VisionCone" parent="." instance=ExtResource("2_fyikx")]
+z_index = 3
+cone_radius = 100.0

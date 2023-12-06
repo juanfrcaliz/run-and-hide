@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_node("../level0/TileMap")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var used_cells = tilemap.get_used_cells(0)
+@onready var vision_cone = $VisionCone
 
 const SPEED: float = 80
 const REACHABLE_THRESHOLD: float = 5
@@ -41,7 +42,7 @@ func make_path() -> void:
 		nav_agent.target_position = get_random_position()
 		initial_path = false
 	
-	if player_detected and is_point_reachable(player.position):
+	if vision_cone.player_detected() and is_point_reachable(player.position):
 		speed = SPEED
 		nav_agent.target_position = player.global_position
 	elif is_target_reached() and not waiting:
