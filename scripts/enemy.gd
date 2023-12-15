@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var used_cells = tilemap.get_used_cells(0)
 @onready var vision_cone = $VisionCone
 
-const SPEED: float = 80
+const SPEED: float = 70
 const REACHABLE_THRESHOLD: float = 5
 
 var speed: float = SPEED
@@ -21,6 +21,7 @@ func _physics_process(_delta) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = speed * dir
 	move_and_slide()
+	#debug_navigation()
 
 
 func is_target_reached():
@@ -42,7 +43,7 @@ func make_path() -> void:
 		nav_agent.target_position = get_random_position()
 		initial_path = false
 	
-	if vision_cone.player_detected() and is_point_reachable(player.position):
+	if vision_cone.target_detected() and is_point_reachable(player.position):
 		speed = SPEED
 		nav_agent.target_position = player.global_position
 	elif is_target_reached() and not waiting:
@@ -67,20 +68,13 @@ func _on_wait_timer_timeout():
 	waiting = false
 
 
-func _on_player_detection_body_entered(body):
-	if body == player:
-		player_detected = true
-		make_path()
-
-
-func _on_player_detection_body_exited(body):
-	if body == player:
-		player_detected = false
-		make_path()
-
-
 func _on_kill_player_body_entered(body):
 	if body == player:
-		# return
+		#return
 		get_node(".").set_physics_process(false)
 		player.kill_player()
+
+
+func debug_navigation():
+	print("Target tile: ", tilemap.local_to_map(nav_agent.target_position))
+	print("Target reachable: ", is_point_reachable(nav_agent.target_position))

@@ -1,6 +1,6 @@
 extends Node2D
 
-const CIRCLE_POINTS: int = 100 # Number of vertices to calculate for the circle.
+const CIRCLE_POINTS: int = 20 # Number of vertices to calculate for the circle.
 const GROUP_TO_DETECT = "detection_target" # Name of the group to detect.
 const BASE_COLOR = Color(1, 1, 1, 0.3) # White
 const DETECTED_COLOR = Color(1, 0, 0, 0.3) # Red

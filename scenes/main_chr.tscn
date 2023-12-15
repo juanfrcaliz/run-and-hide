@@ -31,8 +31,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jwqy"]
-size = Vector2(1, 5.375)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5bd2o"]
+radius = 3.0
+height = 7.6245
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pveln"]
 radius = 3.38441
@@ -42,7 +43,7 @@ height = 17.8039
 radius = 4.0
 height = 10.0
 
-[node name="main_chr" type="CharacterBody2D" groups=["player"]]
+[node name="main_chr" type="CharacterBody2D" groups=["detection_target", "player"]]
 z_index = 1
 texture_filter = 1
 collision_mask = 7
@@ -60,11 +61,11 @@ texture = ExtResource("4_xf7lm")
 
 [node name="ground_area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 6
+collision_mask = 4
 
 [node name="ground_collision" type="CollisionShape2D" parent="ground_area"]
-position = Vector2(0, 8.688)
-shape = SubResource("RectangleShape2D_0jwqy")
+position = Vector2(0, 7.18775)
+shape = SubResource("CapsuleShape2D_5bd2o")
 
 [node name="object_pickup_area" type="Area2D" parent="."]
 

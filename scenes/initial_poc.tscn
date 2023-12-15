@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xtriqdi214q3" path="res://scenes/gui.tscn" id="5_ueu6w"]
 
 [node name="initial_poc" type="Node2D"]
+texture_filter = 1
 
 [node name="level0" parent="." instance=ExtResource("1_kiv4o")]
 
@@ -19,6 +20,6 @@ player = NodePath("../main_chr")
 [node name="enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_t4ser")]
 top_level = true
 z_index = 1
-position = Vector2(42, -74)
+position = Vector2(-32, 6)
 scale = Vector2(0.6, 0.6)
 player = NodePath("../main_chr")
